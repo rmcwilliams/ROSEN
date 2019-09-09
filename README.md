@@ -1,2 +1,2 @@
 # ROSEN
-Rensselaer Open Source Exam Notes
+Rensselaer Open Source Exams & Notes
