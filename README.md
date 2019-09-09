@@ -1,11 +1,11 @@
 # ROSEN
-**Rensselaer Open Source Exams & Notes**
+## Rensselaer Open Source Exams & Notes
 ROSEN is a web application that allows students at RPI to have free access to course note, back exams, study guides, and more. 
 
-**Style Guidelines**
+## Style Guidelines
 Our developers pride ourselves on writing beautiful and efficient code. Contributors should follow standard good style practices such as useful commenting, proper indentation, and portability.
 
-**Code of Conduct**
+## Code of Conduct
 When making a new feature or a bug fix, please make a new branch from Master or the branch you're trying to modify. 
 ```git checkout **(original branch name)** ```
 ```git branch [new branch name] ```
