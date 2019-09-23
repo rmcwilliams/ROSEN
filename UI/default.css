@@ -8,7 +8,7 @@
 		margin: 0px;
 		padding: 0px;
 		background: #333333;
-		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-family:  "Helvetica Neue", "opensans-regular", Helvetica, Arial, sans-serif;
 		font-size: 12pt;
 		font-weight: 300;
 		color: #000000;
@@ -84,14 +84,14 @@ header {
 
 	#logo
 	{
-		padding: 5em 0em;
+		padding: 11em 0em;
 		text-align: center;
 	}
 	
 	#logo h1
 	{
-		margin-bottom: 0.50em;
-		padding: 0.20em 1em;
+		margin-bottom: 0.30em;
+		padding: 0.10em 1em;
 		font-size: 8em;
 	}
 	
@@ -104,8 +104,9 @@ header {
 	#logo span
 	{
 		display: block;
+		font: 'opensans-regular', sans-serif
 		letter-spacing: 0.10em;
-		font-size: 2em;
+		font-size: 1.9em;
 		color: white;
 	}
 
