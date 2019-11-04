@@ -22,10 +22,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else{
                 move_uploaded_file($_FILES["photo"]["tmp_name"], "./" . $filename);
-                echo "Your file was uploaded successfully.";
+                echo "<script>window.location = window.location.href;</script>";
             } 
         } else{
-            echo "Error: There was a problem uploading your file. Please try again."; 
+            echo "Error: File type not allowed."; 
         }
     } else{
         echo "Error: " . $_FILES["photo"]["error"];
@@ -38,5 +38,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <label for="fileSelect">Filename:</label>
         <input type="file" name="photo" id="fileSelect">
         <input type="submit" name="submit" value="Upload">
-        <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed to a max size of 5 MB.</p>
+        <p><strong>Note:</strong> Only [enter allowed file formats here] formats allowed to a max size of 5 MB.</p>
     </form>
