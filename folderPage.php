@@ -1,15 +1,11 @@
 <?php
     include 'header.php';
-    include 'fileManager.php';
-?>
 
-<div class='well well-sm'><a href='../'><big><b>&larr; Go Back</b></big></a></div>
-
-<?php
     $managerOfFiles = new fileManager();
+    $builder = new interfaceBuilder();
+    
+    $builder->showBackButton();
     $managerOfFiles->listFolders();
-?>
 
-<?php
     include 'footer.php';
 ?>
