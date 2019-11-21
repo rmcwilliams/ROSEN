@@ -28,11 +28,8 @@
             <button type="submit" class="btn btn-default" id="theSubmit">Submit</button>
         </form></div>';
     } else {
-        $directories = glob('./*' , GLOB_ONLYDIR);
-        foreach ($directories as $dir)  {
-            $printOut = ltrim($dir, "./");
-            echo "<div class='well well-sm'><a href='$dir'><big>$printOut</big></a></div>";
-        }
+        $managerOfFiles = new fileManager();
+        $managerOfFiles->listFoldersIndex();
     }
 
 ?>

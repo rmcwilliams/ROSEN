@@ -1,8 +1,17 @@
 <?php
     include 'header.php';
-    include 'fileManager.php';
+
     $managerOfFiles = new fileManager();
+    $builder = new interfaceBuilder();
+
+    $builder->showBackButton();
+    $managerOfFiles->listFiles();
+    $builder->showUploadForm();
+
+    include 'fileUploader.php';
+    include 'footer.php';
 ?>
+
 <script>
     $(document).ready(function(){
         $(".upvote").click(function(){
@@ -18,13 +27,3 @@
     });
 </script>
 <input type="hidden" id="clickedOne" name="clickedOne" value="">
-<div class='well well-sm'><a href='../'><big><b>&larr; Go Back</b></big></a></div>
-
-<?php
-    $managerOfFiles->listFiles();
-?>
-
-<?php
-    include 'fileUploader.php';
-    include 'footer.php';
-?>
