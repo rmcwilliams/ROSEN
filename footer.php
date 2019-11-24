@@ -1,5 +1,5 @@
 <?php
-    mysqli_close($con);
+    $dbManager->endConnection();
 ?>
 </div>
 

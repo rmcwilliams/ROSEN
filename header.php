@@ -1,5 +1,10 @@
 <?php
-  require_once('dbConnect.php');
+    include 'databaseManager.php';
+    include 'fileManager.php';
+    include 'interfaceBuilder.php';
+
+    $dbManager = new databaseManager();
+    $dbManager->startSession();
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +22,18 @@
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <img src="/logo.png" height="50" width="50">&nbsp;&nbsp;&nbsp;
+      <img src="/ROSEN/logo.png" height="50" width="50">&nbsp;&nbsp;&nbsp;
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
+      <li class="active"><a href="/ROSEN/index.php">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <?php
       if (!isset($_SESSION['token'])) {
-        echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+        echo '<li><a href="/ROSEN/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/ROSEN/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
       } else {
-        echo '<li><a href="/logoff.php"><big><b>' . $_SESSION['username'] . '</b></big>: Logout</a></li>';
+        echo '<li><a href="/ROSEN/logoff.php"><big><b>' . $_SESSION['username'] . '</b></big>: Logout</a></li>';
       }
     ?>
       </ul>
