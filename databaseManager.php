@@ -2,10 +2,10 @@
 
 class databaseManager {
     
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $db = "rosen";
+    private $host = "xo4.x10hosting.com";
+    private $username = "rosenx12_admin";
+    private $password = "sddteam1234!";
+    private $db = "rosenx12_rosen";
     private $currentConnection;
     
     function startConnection() {

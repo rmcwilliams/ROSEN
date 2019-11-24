@@ -84,7 +84,7 @@ class fileManager {
         //process the form further using ajax call
         var http = new XMLHttpRequest();
         var root = location.protocol + "//" + location.host;
-        var url = root + "/ROSEN/vote.php"; //can var url be inside of the if else statement below or will it not be in the same scope?
+        var url = root + "/vote.php"; //can var url be inside of the if else statement below or will it not be in the same scope?
 
         var params = "hiddenVal=" + hiddenVal + "&upvote=" + upvote;
 
@@ -123,7 +123,7 @@ class fileManager {
                 <div class="col-xs-4">
                     <h3>Leave a comment:</h3>
                     <br>
-                    <form action="/ROSEN/postComment.php" method="POST">
+                    <form action="/postComment.php" method="POST">
                     <div class="form-group">
                         <label for="comment">Comment:</label>
                         <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>

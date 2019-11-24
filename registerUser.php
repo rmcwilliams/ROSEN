@@ -15,7 +15,7 @@
         if($theResult){
             echo "
                 <h3>You were registered successfully.</h3>
-                <br/>Click here to <a href='/ROSEN/'>Login</a>
+                <br/>Click here to <a href='/'>Login</a>
             ";
         } else {
             echo "
