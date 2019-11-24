@@ -3,8 +3,8 @@
 class databaseManager {
     
     private $host = "localhost";
-    private $username = "rosen";
-    private $password = "rosen";
+    private $username = "root";
+    private $password = "";
     private $db = "rosen";
     private $currentConnection;
     
@@ -42,7 +42,7 @@ class databaseManager {
     }
     
     function checkLogin($username, $password) {
-        $check = "SELECT * FROM users where username = '$username' AND password = '$password'";
+        $check = "SELECT * FROM users where username = '$username' AND password = '".md5($password)."'";
         $result = $this->currentConnection->query($check);
         return $result;
     }
@@ -67,6 +67,30 @@ class databaseManager {
         
         return $loginFailed;
         
+    }
+
+
+    function attemptRegister() {
+        // removes backslashes
+        $username = stripslashes($_POST['username']);
+        //escapes special characters in a string
+        $username = mysqli_real_escape_string($this->currentConnection,$username); 
+        
+        //check if username is already taken
+        $check = "SELECT * FROM users where username = '$username'";
+        $res = $this->currentConnection->query($check);
+        if (mysqli_num_rows($res) > 0) {
+            echo "Username is already taken!";
+            exit;
+        }
+
+        $password = stripslashes($_POST['password']);
+        $password = mysqli_real_escape_string($this->currentConnection,$password);
+        $query = "INSERT into `users` (username, password)
+        VALUES ('$username', '".md5($password)."')";
+        $result = mysqli_query($this->currentConnection,$query);
+        $this->endConnection();
+        return $result;
     }
     
     function vote() {
@@ -119,6 +143,49 @@ class databaseManager {
                 } else {
                     echo "Error: " . $sql . "<br>" . $this->currentConnection->error;
                 }
+            }
+        }
+    }
+
+    function showComments() {
+        echo "<h3>Comments:</h3>";
+        $theLocation = $_SERVER['REQUEST_URI'];
+        //get all comments
+        $sql = "SELECT * FROM comments WHERE location = '$theLocation'";
+        $result = $this->currentConnection->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<hr><p>Username: " . $row["user"]. "</p><p>Comment: " . $row["comment"]. "</p><hr>";
+            }
+        } else {
+            echo "No comments for this page. Why don't you add one below?";
+        }
+    }
+
+    function postComment() {
+        if (isset($_POST["commentPost"])) {
+            $name = $_SESSION['username'];
+            $comment = htmlspecialchars($_POST["comment"]);
+            //check to make sure fields aren't empty
+            if ($comment != "") {
+                // Create connection
+                $conn = $this->currentConnection;
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $theLocation = $_SESSION['requestURI'];
+                $sql = "INSERT INTO comments (location, user, comment)
+                VALUES ('$theLocation', '$name', '$comment')";
+                if ($conn->query($sql) === TRUE) {
+                    echo "Comment posted successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            } else {
+                //tell user they need to fill in all fields
+                echo "<script>alert('Please fill in all fields!');</script>";
             }
         }
     }

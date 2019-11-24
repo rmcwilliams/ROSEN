@@ -9,6 +9,11 @@
     $builder->showUploadForm();
 
     include 'fileUploader.php';
+
+    $dbManager->showComments();
+    $managerOfFiles->commentForm();
+
+
     include 'footer.php';
 ?>
 
