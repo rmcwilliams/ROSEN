@@ -95,6 +95,7 @@ class databaseManager {
         return $result;
     }
     
+    //what happens when a user votes on a file
     function vote() {
         
         $hiddenVal = htmlspecialchars($_POST['hiddenVal']);
