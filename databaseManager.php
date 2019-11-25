@@ -35,12 +35,14 @@ class databaseManager {
         header('Location: ./index.php');
     }
     
+    //get all votes at current location
     function queryLocation($theLoc) {
         $sql = "SELECT * FROM votes WHERE location = '$theLoc'";
         $result = $this->currentConnection->query($sql);
         return $result;
     }
     
+    //see if user exists with username and password
     function checkLogin($username, $password) {
         $check = "SELECT * FROM users where username = '$username' AND password = '".md5($password)."'";
         $result = $this->currentConnection->query($check);
