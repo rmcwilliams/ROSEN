@@ -1,5 +1,10 @@
 <?php
-  require_once('dbConnect.php');
+    include 'databaseManager.php';
+    include 'fileManager.php';
+    include 'interfaceBuilder.php';
+
+    $dbManager = new databaseManager();
+    $dbManager->startSession();
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +30,8 @@
     <ul class="nav navbar-nav navbar-right">
     <?php
       if (!isset($_SESSION['token'])) {
-        echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+        echo '<li><a href="/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
       } else {
         echo '<li><a href="/rosen/logoff.php"><big><b>' . $_SESSION['username'] . '</b></big>: Logout</a></li>';
       }
