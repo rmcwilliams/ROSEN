@@ -1,7 +1,7 @@
 <?php
     $dbManager->endConnection();
 ?>
-</div>
 
-</body>
+        </div>
+    </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
     include 'header.php';
 ?>
+
 <script>
     $(document).ready(function() {
         $("#theSubmit").click(function(){
@@ -18,8 +19,8 @@
         }); 
     });
 </script>
-<?php
 
+<?php
     echo '<div align="center"><form action="registerUser.php" method="post" style="width:30%;">
         <div id="errorMsg" style="color:red;"></div>
         <div class="form-group">

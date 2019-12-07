@@ -4,7 +4,7 @@
     if ($_POST['username'] == "" || $_POST['password'] == "" || $_POST['passwordConf'] == "") {
         echo "You must fill in all fields!";
         exit;
-    } else if ($_POST['password'] != $_POST['passwordConf']){
+    } else if ($_POST['password'] != $_POST['passwordConf']) {
         echo "Password and confirm password do not match!";
         exit;
     } else {
@@ -12,7 +12,7 @@
         $dbManager->startSession();
         $theResult = $dbManager->attemptRegister();
 
-        if($theResult){
+        if ($theResult) {
             echo "
                 <h3>You were registered successfully.</h3>
                 <br/>Click here to <a href='/'>Login</a>
