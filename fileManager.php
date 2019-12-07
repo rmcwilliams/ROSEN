@@ -4,7 +4,7 @@ class fileManager {
     
     function listFoldersIndex() {
         $directories = glob('./*' , GLOB_ONLYDIR);
-        foreach ($directories as $dir)  {
+        foreach ($directories as $dir) {
             $printOut = ltrim($dir, "./");
             echo "<div class='well well-sm'><a href='$dir'><big>$printOut</big></a></div>";
         }
@@ -12,7 +12,7 @@ class fileManager {
     
     function listFolders() {
         $directories = glob('./*' , GLOB_ONLYDIR);
-        foreach ($directories as $dir)  {
+        foreach ($directories as $dir) {
             $printOut = ltrim($dir, "./");
             echo "<div class='well well-sm'><a href='$dir'><big>$printOut</big></a></div>";
         } 
@@ -43,7 +43,7 @@ class fileManager {
     function uploadFile() {
         //$uri = $_SERVER['REQUEST_URI'];
         // Check if file was uploaded without errors
-        if(isset($_FILES["photo"])){
+        if (isset($_FILES["photo"])){
             if ($_FILES["photo"]["error"] == 0) {
                 $allowed = array("pdf" => "application/pdf", "doc" => "application/msword", "docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "xls" => "application/vnd.ms-excel", "ppt" => "application/vnd.ms-powerpoint", "pptx" => "application/vnd.openxmlformats-officedocument.presentationml.presentation", "png" => "image/png", "jpeg" => "image/jpeg", "zip" => "application/zip");
                 $filename = $_FILES["photo"]["name"];
@@ -52,16 +52,15 @@ class fileManager {
         
                 // Verify file extension
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                //if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
         
                 // Verify file size - 5MB maximum
                 $maxsize = 5 * 1024 * 1024;
-                if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+                if ($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
         
                 // Verify MYME type of the file
-                if(in_array($filetype, $allowed)) {
+                if (in_array($filetype, $allowed)) {
                     // Check whether file exists before uploading it
-                    if(file_exists("upload/" . $filename)){
+                    if (file_exists("upload/" . $filename)){
                         echo $filename . " is already exists.";
                     } else {
                         move_uploaded_file($_FILES["photo"]["tmp_name"], "./" . $filename);

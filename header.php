@@ -19,25 +19,25 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <img src="/rosen/logo.png" height="50" width="50">&nbsp;&nbsp;&nbsp;
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <?php
-      if (!isset($_SESSION['token'])) {
-        echo '<li><a href="/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
-      } else {
-        echo '<li><a href="/rosen/logoff.php"><big><b>' . $_SESSION['username'] . '</b></big>: Logout</a></li>';
-      }
-    ?>
-      </ul>
-  </div>
-</nav>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img src="/rosen/logo.png" height="50" width="50">&nbsp;&nbsp;&nbsp;
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <?php
+                        if (!isset($_SESSION['token'])) {
+                            echo '<li><a href="/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+                        } else {
+                            echo '<li><a href="/rosen/logoff.php"><big><b>' . $_SESSION['username'] . '</b></big>: Logout</a></li>';
+                        }
+                    ?>
+                </ul>
+            </div>
+        </nav>
     
         <div class="container">

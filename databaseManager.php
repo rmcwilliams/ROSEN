@@ -97,7 +97,6 @@ class databaseManager {
     
     //what happens when a user votes on a file
     function vote() {
-        
         $hiddenVal = htmlspecialchars($_POST['hiddenVal']);
         $upvote = htmlspecialchars($_POST['upvote']);
         $user = $_SESSION['username'];

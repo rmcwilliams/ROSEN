@@ -1,6 +1,7 @@
 <?php
     include 'header.php';
 ?>
+
 <script>
     $(document).ready(function() {
         $("#theSubmit").click(function(){
@@ -13,6 +14,7 @@
         }); 
     });
 </script>
+
 <?php
     if (!isset($_SESSION['token'])) {
         echo '<div align="center"><form action="login.php" method="post" style="width:30%;">
@@ -31,7 +33,6 @@
         $managerOfFiles = new fileManager();
         $managerOfFiles->listFoldersIndex();
     }
-
 ?>
 
 <?php
