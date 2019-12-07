@@ -43,7 +43,7 @@ class fileManager {
     function uploadFile() {
         //$uri = $_SERVER['REQUEST_URI'];
         // Check if file was uploaded without errors
-        if (isset($_FILES["photo"])){
+        if (isset($_FILES["photo"])) {
             if ($_FILES["photo"]["error"] == 0) {
                 $allowed = array("pdf" => "application/pdf", "doc" => "application/msword", "docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "xls" => "application/vnd.ms-excel", "ppt" => "application/vnd.ms-powerpoint", "pptx" => "application/vnd.openxmlformats-officedocument.presentationml.presentation", "png" => "image/png", "jpeg" => "image/jpeg", "zip" => "application/zip");
                 $filename = $_FILES["photo"]["name"];
@@ -60,7 +60,7 @@ class fileManager {
                 // Verify MYME type of the file
                 if (in_array($filetype, $allowed)) {
                     // Check whether file exists before uploading it
-                    if (file_exists("upload/" . $filename)){
+                    if (file_exists("upload/" . $filename)) {
                         echo $filename . " is already exists.";
                     } else {
                         move_uploaded_file($_FILES["photo"]["tmp_name"], "./" . $filename);
